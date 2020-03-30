@@ -55,16 +55,20 @@ class color:
     END = '\033[0m'
     UNDERLINE = '\033[4m'
     LOGGING = '\33[34m'
+
+
 def clearScr():
     os.system('clear')
 
 def yesOrNo():
     return (raw_input("Continue Y / N: " ) in yes)
+
+
 '''
 config
 '''
 installDir = os.path.dirname(os.path.abspath(__file__)) + '/'
-configFile = installDir + "/nettols.cfg"
+configFile = installDir + "/nettools.cfg"
 print(installDir)
 config = ConfigParser.RawConfigParser()
 config.read(configFile)
@@ -74,7 +78,7 @@ logDir = installDir + config.get('nettools', 'logDir')
 yes = config.get('nettools', 'yes').split()
 color_random=[color.HEADER,color.IMPORTANT,color.NOTICE,color.OKBLUE,color.OKGREEN,color.WARNING,color.RED,color.END,color.UNDERLINE,color.LOGGING]
 random.shuffle(color_random)
-webtoolLogo = color_random[0] + '''                                                                                    
+nettoolsLogo = color_random[0] + '''                                                                                    
                    __              __                .__          
       ____   _____/  |_          _/  |_  ____   ____ |  |   ______
      /    \_/ __ \   __\  ______ \   __\/  _ \ /  _ \|  |  /  ___/
@@ -82,7 +86,11 @@ webtoolLogo = color_random[0] + '''
     |___|  /\___  >__|            |__|  \____/ \____/|____/____  >
          \/     \/                                             \/ 
 '''
-termsAndconditions = color.notice + '''
+nettoolsPrompt = "nettools ~# "
+alreadyInstalled = "Already Installed"
+continuePrompt = "\nClick [Return] to continue"
+
+termsAndconditions = color.NOTICE + '''
 Bonjour , 
 je me dedouane et ne suit en aucun cas responsable de l'usage qu'auront certain avec cet outil
 Merci de votre lecture
@@ -91,46 +99,44 @@ Kesteng0r - dev
 Hello ,
 I dedicate myself and in no case follow responsible for the use that will have certain with this tool
 Thanks for reading,
-Kesteng0r - dev'''
+Kesteng0r - dev''' + color.END
+
+mrrobot4 = color.NOTICE + '''
+Hello,
+
+As we all know, Mr. Robot 4.0 is comming out - the end of Mr. Robot.
+
+We will update to python3.7 & add all of the new hacking tool of 4.0 later this year
+There will be no more updates after the show is done.
+This is to keep cannon to the show.))
+
+Thank you for all the sourport over the years, the fsociety team thanks you!
+Feel free to join the NEW DISCORD!!!
+Anything Mr. Robot will be on the server!
+
+[ https://discord.gg/xB87X9z ]
+
+
+
+Thanks for reading,
+kesteng0r- Dev'''
 '''
-Start menu classes
+Starts Menu Classes
 '''
 def agreement():
 	while not config.getboolean("nettools", "agreement"):
-	agree = raw_input("You must agree the conditions first (Y/n) ").lower()
-	if agree in yes:
-		config.set('nettools', 'agreement', 'true')
-class nettools:
-	def __init__(self):
-        clearScr()
-        self.createFolders()
-print (nettoolslogo + color.RED + '''
-	---------------------------
-	----create by Kesteng0r----
-	---------------------------
-''' + color.END + '''
-Hello, 
-
-This is my first programme 
-'''
-
-'''
-Starts Menu CLasses
-'''
-def agreement():
-	while not config.getboolean("nettools", "agreement"),
 		clearScr()
 		agree = raw_input("You must agree to our terms and conditions first (Y/n) ").lower()
         if agree in yes:
             config.set('fsociety', 'agreement', 'true')
 
-class fsociety:
+class nettools:
     def __init__(self):
         clearScr()
         self.createFolders()
         print (webtoolslogo + color.RED + '''
        }--------------{+} Coded By Kesteng0r {+}--------------{
-       }--------{+}  GitHub.com/Kesteng0r/nettools{+}--------{
+       }--------{+}  GitHub.com/Kesteng0r/nettools {+}--------{
     ''' + color.END + '''
        {1}--Nmap
        {2}--WPScan
