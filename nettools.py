@@ -1,4 +1,4 @@
-#!/usr/bin/env python 3
+#!/usr/bin/env python2
 #   $$\   $$\ $$$$$$$$\  $$$$$$\ $$$$$$$$\ $$$$$$$$\ $$\   $$\  $$$$$$\   $$$$$$\  $$$$$$$\  
 #   $$ | $$  |$$  _____|$$  __$$\\__$$  __|$$  _____|$$$\  $$ |$$  __$$\ $$$ __$$\ $$  __$$\ 
 #   $$ |$$  / $$ |      $$ /  \__|  $$ |   $$ |      $$$$\ $$ |$$ /  \__|$$$$\ $$ |$$ |  $$ |
@@ -126,17 +126,17 @@ Starts Menu Classes
 def agreement():
 	while not config.getboolean("nettools", "agreement"):
 		clearScr()
-		agree = raw_input("You must agree to our terms and conditions first (Y/n) ").lower()
-        if agree in yes:
-            config.set('fsociety', 'agreement', 'true')
+	print('termsAndConditions')
+        agree = raw_input("You must agree to our terms and conditions first (Y/n) ").lower()
+	if agree in yes:
+		config.set('nettools', 'agreement', 'true')
 
 class nettools:
-    def __init__(self):
-        clearScr()
-        self.createFolders()
-        print (webtoolslogo + color.RED + '''
-       }--------------{+} Coded By Kesteng0r {+}--------------{
-       }--------{+}  GitHub.com/Kesteng0r/nettools {+}--------{
+	def __init__(self):
+		self.createFolders()
+	print (nettoolsLogo + color.RED + '''
+	}-------------{+} Coded By Kesteng0r {+}------------{
+	}-------{+}  GitHub.com/Kesteng0r/nettools {+}-------{
     ''' + color.END + '''
        {1}--Nmap
        {2}--WPScan
@@ -144,28 +144,16 @@ class nettools:
        {4}--Host2IP
        {99}-EXIT\n
      ''')
-        choice = raw_input(fsocietyPrompt)
+        choice = raw_input(nettoolsPrompt)
         clearScr()
         if choice == "1":
-            informationGatheringMenu()
+            nmap()
         elif choice == "2":
-            passwordAttacksMenu()
+            host2ip()
         elif choice == "3":
             wirelessTestingMenu()
         elif choice == "4":
             exploitationToolsMenu()
-        elif choice == "5":
-            sniffingSpoofingMenu()
-        elif choice == "6":
-            webHackingMenu()
-        elif choice == "7":
-            privateWebHacking()
-        elif choice == "8":
-            postExploitationMenu()
-        elif choice == "0":
-            self.update()
-        elif choice == "11":
-            self.githubContributors()
         elif choice == "99":
             with open(configFile, 'wb') as configfile:
                 config.write(configfile)
@@ -220,6 +208,7 @@ class nmap:
         print("   {1}--Simple Scan [-sV]")
         print("   {2}--Port Scan [-Pn]")
         print("   {3}--Operating System Detection [-A]\n")
+        print("   {4}--Scan UDP [-sU]")
         print("   {99}-Return to information gathering menu \n")
         response = raw_input("nmap ~# ")
         clearScr()
@@ -234,6 +223,8 @@ class nmap:
             elif response == "3":
                 os.system("nmap -A -oN %s %s" % (logPath, target))
                 response = raw_input(continuePrompt)
+            elif response == "4":
+            	os.system("nmap -sU -oN %s %s" % (logPath, target))
             elif response == "99":
                 pass
             else:
@@ -284,4 +275,18 @@ class host2ip:
         ip = socket.gethostbyname(host)
         print("   %s has the IP of %s" % (host, ip))
         response = raw_input(continuePrompt)
+
+class dirb: 
+	dirbLogo = '''
+	d ss     d  d ss.   d ss.  
+	S   ~o   S  S    b  S    b 
+	S     b  S  S    P  S    P 
+	S     S  S  S sS'   S sSS' 
+	S     P  S  S   S   S    b 
+	S    S   S  S    S  S    P 
+	P ss"    P  P    P  P `SS  
+        '''
+        
+                     
+
 
