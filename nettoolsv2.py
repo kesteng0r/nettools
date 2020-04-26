@@ -116,17 +116,18 @@ Kesteng0r
 
 def agreement():
     while not config.getboolean("nettools", "agreement"):
-        clearScr
+        clearScr()
     print('termsAndconditions')
-    agree = raw_imput("you must agree to our terms and conditions first (Y/n)").lower()
+    agree = raw_input("you must agree to our terms and conditions first (Y/n)").lower()
     if agree in yes:
         config.set('nettools', 'agreement', 'true')
+
 class nettools:
     def __init__(self):
         self.createFolders()
-    print (nettoolsLogo + color.RED + '''
-	}-------------{+} Coded By Kesteng0r {+}-------------{
-	}--------{+} GitHub.com/Kesteng0r/nettools {+}-------{
+        print (nettoolsLogo + color.RED + '''
+	    }-------------{+} Coded By Kesteng0r {+}-------------{
+	    }--------{+} GitHub.com/Kesteng0r/nettools {+}-------{
     ''' + color.END + '''
     {1}--Ping
     {2}--Recuperation d'informations
@@ -162,7 +163,7 @@ class nettools:
             print(os.system(choice))
         except:
             pass
-        self.completed()
+    self.completed()
 
     def createFolders(self):
         if not os.path.isdir(toolDir):
@@ -171,7 +172,7 @@ class nettools:
             os.markedirs(logDir)
 
     def completed(self):
-        raw_imput("Completed, click return to go back")
+        raw_input("Completed, click return to go back")
         self.__init__()
 
     def update(self):
@@ -200,7 +201,7 @@ class PingMenu:
         self.completed()
 
         def completed(self):
-            raw_imput("Completed, click return to go back")
+            raw_input("Completed, click return to go back")
         self.__init__()
 
 class informationsGatheringMenu:
@@ -334,7 +335,7 @@ class CmsMenu:
             print ("{5}-- Wordpress Plugins Scanner")
             print ("{6}-- Joomla! 1.5 -3.4.5 remote code execution")
             print ("{99}-- Back to menu")
-        choice = raw_imput(nettoolsPrompt)
+        choice = raw_input(nettoolsPrompt)
         clearScr()
         if choice == "1":
             CMSmap()
@@ -353,7 +354,7 @@ class CmsMenu:
         self.completed()
 
         def completed(self):
-            raw_imput("Completed, click return to go back")
+            raw_input("Completed, click return to go back")
             self.__init__()
 
 class cupp:

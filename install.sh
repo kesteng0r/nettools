@@ -69,7 +69,7 @@ fi
 
 echo "[✔] Installing ...";
 echo "";
-git clone --depth=1 https://github.com/Manisso/fsociety "$INSTALL_DIR";
+git clone --depth=1 https://github.com/kesteng0r/nettools.git "$INSTALL_DIR";
 echo "#!$BASH_PATH
 python $INSTALL_DIR/nettools.py" '${1+"$@"}' > "$INSTALL_DIR/nettools";
 chmod +x "$INSTALL_DIR/nettools";
