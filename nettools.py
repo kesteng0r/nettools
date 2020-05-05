@@ -34,7 +34,6 @@ import base64
 import time
 import ConfigParser
 from sys import argv
-from commands import *
 from getpass import getpass
 from xml.dom import minidom
 from urlparse import urlparse
@@ -141,10 +140,12 @@ class nettools:
     ''')
         choice = raw_input(nettoolsPrompt)
         clearScr()
-        if choice == "2":
+        if choice =="1":
+            Ping()
+        elif choice == "2":
             informationsGatheringMenu()
         elif choice == "3":
-            PhishingMenu()
+            sniffingSpoofingMenu()
         elif choice == "4":
             passwordMenu()
         elif choice == "5":
@@ -179,6 +180,14 @@ class nettools:
         os.system("cd nettools && bash ./update.sh")
         os.system("nettools")
 
+class Ping:
+    menuLogo= '''PING'''
+    hostname = "raw_imput"
+    response = os.system("ping -c 1 " + hostname)
+    if response == 0:
+    print hostname, 'is up!'
+    else:
+    print hostname, 'is down!'
 class informationsGatheringMenu:
     menuLogo = '''
     88 88b 88 888888  dP"Yb
@@ -227,7 +236,7 @@ class informationsGatheringMenu:
         raw_input("Completed, click return to go back")
         self.__init__()
 
-class PhishingMenu:
+class sniffingSpoofingMenu:
     menuLogo = '''
     88""Yb 88  88 88 .dP"Y8 88 88b 88  dP""b8 
     88__dP 88  88 88 `Ybo." 88 88Yb88 dP   `" 
@@ -321,15 +330,10 @@ class CmsMenu:
             elif choice3 == "4":
                 wpminiscanner()
             elif choice3 == "5":
-                wppluginscanner()
+                wppluginscan()
             elif choice3 == "99":
                 nettools()
             else:
-                self.__init__()
-            self.completed()
-
-            def completed(self):
-                raw_input("Completed, click return to go back")
                 self.__init__()
 
 class cupp:
@@ -434,7 +438,6 @@ class setoolkit:
         else:
             print(alreadyInstalled)
             self.run()
-        response = raw_input(continuePrompt)
 
     def installed(self):
         return (os.path.isfile("/usr/bin/setoolkit"))
@@ -464,7 +467,6 @@ class host2ip:
         host = raw_input("   Enter a Host: ")
         ip = socket.gethostbyname(host)
         print("   %s has the IP of %s" % (host, ip))
-        response = raw_input(continuePrompt)
 
 
 class wpscan:
@@ -545,7 +547,6 @@ class CMSmap:
         print(self.CMSmapLogo)
         target = raw_input("   Enter a Target: ")
         self.run(target)
-        response = raw_input(continuePrompt)
 
     def installed(self):
         return (os.path.isdir(self.installDir))
@@ -581,7 +582,6 @@ class XSStrike:
         clearScr()
         print(self.XSStrikeLogo)
         self.run()
-        response = raw_input(continuePrompt)
 
     def installed(self):
         return (os.path.isdir(self.installDir))
@@ -613,7 +613,6 @@ class doork:
         print(self.doorkLogo)
         target = raw_input("   Enter a Target: ")
         self.run(target)
-        response = raw_input(continuePrompt)
 
     def installed(self):
         return (os.path.isdir(self.installDir))
@@ -727,6 +726,19 @@ def wppluginscan():
         except Exception as message:
             print("Cant Connect:" + message) 
             pass
+        sites = open(sitesfile).readlines()
+        plugins = open(filepath).readlines()
+        for site in sites:
+            site = site.rstrip()
+        for plugin in plugins:
+            plugin = plugin.rstrip()
+            scan(site, plugin)
+            if resp not in Notfound:
+                print("+----------------------------------------+")
+                print("| current site:" + site)
+                print("| Found Plugin: " + plugin)
+                print("| Result:", resp)
+
 
 def wppjmla():
 
@@ -744,6 +756,18 @@ def wppjmla():
     print '[+] Found ! ', len(joomla), ' Joomla Websites'
 
     print '\n'
+
+
+def check_wpsymposium(sites):
+    wpsymposium = []
+    for site in sites:
+        try:
+            if urllib2.urlopen(site + 'wp-symposium/server/file_upload_form.php').getcode() == 200:
+                wpsycmium.append(site)
+        except:
+            pass
+
+    return wpsymposium
 
 def wpminiscanner():
     ip = raw_input('Enter IP: ')
@@ -781,7 +805,6 @@ def wpminiscanner():
     print '[*] Found, ', len(wpsymposium), ' wp_sympsiup exploit.'
 
     print '\n'
-############################
 
 
 if __name__ == "__main__":
@@ -791,7 +814,10 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         print(" Finishing up...\n")
         time.sleep(0.25)
-
+def unique(seq):
+    seen = set()
+    return [seen.add(x) or x for x in seq if x not in seen]
+    
 def bing_all_grabber(s):
 
     lista = []
@@ -889,26 +915,3 @@ def check_wpeasyupload(sites):
             pass
 
     return wpeasyupload
-
-
-def check_wpsymposium(sites):
-    wpsymposium = []
-    for site in sites:
-        try:
-            if urllib2.urlopen(site + 'wp-symposium/server/file_upload_form.php').getcode() == 200:
-                wpsycmium.append(site)
-        except:
-            pass
-
-    return wpsymposium
-
-def check_wpsymposium(sites):
-    wpsymposium = []
-    for site in sites:
-        try:
-            if urllib2.urlopen(site + 'wp-symposium/server/file_upload_form.php').getcode() == 200:
-                wpsycmium.append(site)
-        except:
-            pass
-
-    return wpsymposium
