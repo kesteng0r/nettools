@@ -14,5 +14,11 @@ git clone https://github.com/kesteng0r/nettools
 cd nettools
 ./install.sh
 ```
+
+## Usage : 
+```bash
+sudo python2 nettools.py
+```
+
 ## License
 [MIT](https://github.com/kesteng0r/nettools/blob/master/license)
