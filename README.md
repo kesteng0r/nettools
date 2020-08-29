@@ -15,4 +15,4 @@ cd nettools
 ./install.sh
 ```
 ## License
-[MIT]
+[MIT]https://github.com/kesteng0r/nettools/blob/master/license
