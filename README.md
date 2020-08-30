@@ -34,8 +34,8 @@ Net-tools is a Framework bringing together all the most used tools in the world 
 
 #### attaque de mots de passe:
 
-   . Cupp
-   . BruteX
+   * Cupp
+   * BruteX
 
 #### CMScan:
 
