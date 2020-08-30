@@ -1,7 +1,49 @@
 # Net-toools
 
+# Menu
+
+    Récuperation d'informations
+    Phishing
+    attaque de mots de passe
+    Scan CMS
+    Install & Update
+
+## Récupération d'informations:
+
+    Nmap
+    Setoolkit
+    Host To IP
+    WPScan
+    CMS Scanner
+    XSStrike
+    Dork - Google Dorks Passive Vulnerability Auditor
+    Crips
+
+## Phishing:
+
+	SEToolkit - Tool aimed at penetration testing around Social-Engineering")
+	SSLtrip - MITM tool that implements SSL stripping  attacks")
+	pyPISHER - Tool to create a mallicious website for password pishing")
+	SMTP Mailer - Tool to send SMTP mail\n ")
+
+## attaque de mots de passe:
+
+	Cupp
+	BruteX
+
+## CMScan:
+
+	Cmsmap
+	wpscan
+	Wordpress & joomla scanner
+	Wordpress Exploit Scanner")
+  Wordpress Plugins Scanner")
+  Joomla! 1.5 -3.4.5 remote code execution")
+  
+  
 ### FR :
-Net-tools est un Framework regroupant tous les outils les plus utiliser dans le monde du pentest
+Net-tools est un Framework regroupant tous les outils les plus utiliser dans le monde du pentest 
+
 
 ### EN :
 Net-tools is a Framework bringing together all the most used tools in the world of pentesting
