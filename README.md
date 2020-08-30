@@ -1,9 +1,9 @@
 # Net-toools
 
-## FR :
+#### FR :
 Net-tools est un Framework regroupant tous les outils les plus utiliser dans le monde du pentest 
 
-## EN :
+#### EN :
 Net-tools is a Framework bringing together all the most used tools in the world of pentesting
 
 ### Menu
@@ -32,7 +32,7 @@ Net-tools is a Framework bringing together all the most used tools in the world 
    * pyPISHER - Tool to create a mallicious website for password pishing
    * SMTP Mailer - Tool to send SMTP mail
 
-#### attaque de mots de passe:
+#### Attaque de mots de passe:
 
    * Cupp
    * BruteX
