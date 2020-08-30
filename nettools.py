@@ -95,17 +95,17 @@ continuePrompt = "\nClick [Return] to continue"
 
 termsAndconditions = color.NOTICE + '''
 Bonjour,
-Je me dedouane et je ne suit en aucun cas reponsable de l'utilisation qui serat fait de ce script.
+Je me dedouane et je ne suit en aucun cas reponsable de la mauvaise utilisation qui peut etre faite de ce script.
 Merci de votre lecture
 Kesteng0r
 
 Hello ,
-I dedicate myself and in no case follow responsible for the use that will have certain with this tool
+I dedicate myself and in no case follow responsible for the bad use that will have certain with this tool
 Thanks for reading,
 kesteng0r''' + color.END
 
 nettools2 = color.NOTICE + '''
-Ce script est encore en python2 la version arrive prochainement 
+Ce script est encore en python2 mais la version 3 arrive prochainement 
 
 This script is stay in python2 the python3 version coming 
 
@@ -118,7 +118,7 @@ Starts Menu classes
 def agreement():
     while not config.getboolean("nettools", "agreement"):
         clearScr
-        print('termsAndconditions')
+        print(termsAndconditions)
         agree = raw_input("you must agree to our terms and conditions first (Y/n)").lower()
         if agree in yes:
             config.set('nettools', 'agreement', 'true')
@@ -130,25 +130,22 @@ class nettools:
 	   }-------------{+} Coded By Kesteng0r {+}-------------{
        }--------{+} GitHub.com/Kesteng0r/nettools {+}-------{
     ''' + color.END + '''
-        {1}--Ping
-        {2}--Recuperation d'informations
-        {3}--Phishing
-        {4}--Attaque de mots de passe 
-        {5}--Scan CMS(wordpress & Joomla)
+        {1}--Recuperation d'informations
+        {2}--Phishing
+        {3}--Attaque de mots de passe 
+        {4}--Scan CMS(wordpress & Joomla)
         {0}--Install & Update
         {99}-- Exit\n
     ''')
         choice = raw_input(nettoolsPrompt)
         clearScr()
-        if choice =="1":
-            Ping()
-        elif choice == "2":
+        if choice == "1":
             informationsGatheringMenu()
-        elif choice == "3":
+        elif choice == "2":
             sniffingSpoofingMenu()
-        elif choice == "4":
+        elif choice == "3":
             passwordMenu()
-        elif choice == "5":
+        elif choice == "4":
             CmsMenu()
         elif choice == "0":
             self.update
@@ -180,14 +177,6 @@ class nettools:
         os.system("cd nettools && bash ./update.sh")
         os.system("nettools")
 
-class Ping:
-    menuLogo= '''PING'''
-    hostname = "raw_imput"
-    response = os.system("ping -c 1 " + hostname)
-    if response == 0:
-    print hostname, 'is up!'
-    else:
-    print hostname, 'is down!'
 class informationsGatheringMenu:
     menuLogo = '''
     88 88b 88 888888  dP"Yb
@@ -747,15 +736,15 @@ def wppjmla():
     wordpress = check_wordpress(sites)
     joomla = check_joomla(sites)
     for ss in wordpress:
-        print ss
-    print '[+] Found ! ', len(wordpress), ' Wordpress Websites'
-    print '-' * 30 + '\n'
+        print ('ss')
+    print ('[+] Found ! '), len(wordpress), (' Wordpress Websites')
+    print ('-' * 30 + '\n')
     for ss in joomla:
-        print ss
+        print ('ss')
 
-    print '[+] Found ! ', len(joomla), ' Joomla Websites'
+    print ('[+] Found ! '), len(joomla), (' Joomla Websites')
 
-    print '\n'
+    print ('\n')
 
 
 def check_wpsymposium(sites):
@@ -779,32 +768,32 @@ def wpminiscanner():
     wpeasyupload = check_wpeasyupload(sites)
     wpsymposium = check_wpsymposium(sites)
     for ss in wordpress:
-        print ss
-    print '[*] Found, ', len(wordpress), ' wordpress sites.'
-    print '-' * 30 + '\n'
+        print ('ss')
+    print ('[*] Found, ', len(wordpress), ' wordpress sites.')
+    print ('-' * 30 + '\n')
     for ss in wpstorethemeremotefileupload:
-        print ss
-    print '[*] Found, ', len(
+        print ('ss')
+    print ('[*] Found, '), len(
         wpstorethemeremotefileupload), ' wp_storethemeremotefileupload exploit.'
-    print '-' * 30 + '\n'
+    print ('-' * 30 + '\n')
     for ss in wpcontactcreativeform:
-        print ss
-    print '[*] Found, ', len(wpcontactcreativeform), ' wp_contactcreativeform exploit.'
-    print '-' * 30 + '\n'
+        print ('ss')
+    print ('[*] Found, ', len(wpcontactcreativeform), ' wp_contactcreativeform exploit.')
+    print ('-' * 30 + '\n')
     for ss in wplazyseoplugin:
-        print ss
-    print '[*] Found, ', len(wplazyseoplugin), ' wp_lazyseoplugin exploit.'
-    print '-' * 30 + '\n'
+        print ('ss')
+    print ('[*] Found, ', len(wplazyseoplugin), ' wp_lazyseoplugin exploit.')
+    print ('-' * 30 + '\n')
     for ss in wpeasyupload:
-        print ss
-    print '[*] Found, ', len(wpeasyupload), ' wp_easyupload exploit.'
-    print '-' * 30 + '\n'
+        print ('ss')
+    print ('[*] Found, ', len(wpeasyupload), ' wp_easyupload exploit.')
+    print ('-' * 30 + '\n')
     for ss in wpsymposium:
-        print ss
+        print ('ss')
 
-    print '[*] Found, ', len(wpsymposium), ' wp_sympsiup exploit.'
+    print ('[*] Found, ', len(wpsymposium), ' wp_sympsiup exploit.')
 
-    print '\n'
+    print ('\n')
 
 
 if __name__ == "__main__":
