@@ -12,7 +12,7 @@ Net-tools is a Framework bringing together all the most used tools in the world 
 ```bash
 git clone https://github.com/kesteng0r/nettools
 cd nettools
-./install.sh
+sudo sh install.sh
 ```
 
 ## Usage : 
