@@ -1,10 +1,10 @@
 # Net-toools
 
 #### FR :
-Net-tools est un Framework regroupant tous les outils les plus utiliser dans le monde du pentest 
+Net-tools est un Script regroupant tous les outils les plus utiliser dans le monde du pentest 
 
 #### EN :
-Net-tools is a Framework bringing together all the most used tools in the world of pentesting
+Net-tools is a script bringing together all the most used tools in the world of pentesting
 
 ### Menu
 
